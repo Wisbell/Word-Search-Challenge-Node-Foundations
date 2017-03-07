@@ -6,7 +6,7 @@ const { split, map } = require('event-stream')
 const { Transform } = require('stream')
 
 // How do I use module.exports again?
-// const transformStream = require('./limit-ten.js')
+// const { limitStream } = require('./limit-ten.js')
 
 const transformStream = Transform()
 
