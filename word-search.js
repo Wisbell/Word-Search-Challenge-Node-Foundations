@@ -3,12 +3,12 @@
 // Require necessary functions
 const { createReadStream } = require('fs')
 const { split, map } = require('event-stream')
-const { Transform } = require('stream')
+// const { Transform } = require('stream')
 
 // How do I use module.exports again?
-// const { limitStream } = require('./limit-ten.js')
+const { transformStream } = require('./limit-ten.js')
 
-const transformStream = Transform()
+// const transformStream = Transform()
 
 // This is the list of words I will compare against
 const words = '/usr/share/dict/words'
@@ -19,9 +19,9 @@ const searchWord = process.argv[2]
 // set up read stream
 let readStream = createReadStream(words)
 
-const limit = 10 // store max num words
+// const limit = 10 // store max num words
 
-let i = 0 // keep track fo number of words
+// let i = 0 // keep track fo number of words
 
 // this function will do the word comparison to the words list
 const checkWord = (word) => {
@@ -31,10 +31,10 @@ const checkWord = (word) => {
 }
 
 // set up transform function
-transformStream._transform = (buffer, _, done) => {
-  if(i < limit) done(null, `${buffer.toString()}\n`)
-  i++
-}
+// transformStream._transform = (buffer, _, done) => {
+//   if(i < limit) done(null, `${buffer.toString()}\n`)
+//   i++
+// }
 
 // main function
 const findWord = () => {
